@@ -2,14 +2,18 @@
   "name": "magic_converter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ummatias.github.io/mtg_converter",
+
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "deploy": "npm run build && npx gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@types/papaparse": "^5.3.15",
+    "gh-pages": "^6.3.0",
     "next": "15.3.1",
     "next-themes": "^0.4.6",
     "papaparse": "^5.5.2",
