@@ -2,7 +2,6 @@
   "name": "magic_converter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ummatias.github.io/mtg_converter",
 
   "scripts": {
     "dev": "next dev",
