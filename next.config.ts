@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/mtg_converter',
-  assetPrefix: '/mtg_converter/',
+  output: 'export', // Enables static export
+  basePath: '/mtg_converter', // Important: use your GitHub repo name here
+  assetPrefix: '/mtg_converter/', // Same as above
+  trailingSlash: true, // Ensures all routes work as static files
   images: {
-    unoptimized: true,
+    unoptimized: true, // Required for static HTML export
   },
-  trailingSlash: true, // importante para rotas estáticas no GitHub Pages
 };
 
 module.exports = nextConfig;
