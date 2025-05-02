@@ -174,7 +174,7 @@ export default function Home() {
           className="cursor-pointer w-full mt-2 block text-center bg-green-600 hover:bg-green-700 text-white py-2 rounded transition disabled:opacity-50"
           disabled={!output}
         >
-          Download CSV
+          Download
         </button>
       </div>
     </div>
