@@ -124,11 +124,12 @@ function manaboxToLigamagic(cards: ManaBoxCard[]): LigaMagicCard[] {
 function ligamagicToMoxfield(cards: LigaMagicCard[]): MoxFieldCard[] {
     return cards.map((card) => ({
     Count: card.Quantidade || 1,
-    Name: card['Card (EN)'] || '',
+    //Needed to remove the text inside the parentheses, normally cards with some kind of variant (ex: Atractions of Unffinity)
+    Name: card['Card (EN)']?.replace(/\s*\(.*?\)\s*/g, '') || '',
     Edition: card['Edicao (Sigla)'] || '',
     Condition: card['Qualidade (M NM SP MP HP D)'] === 'NM' ? 'Near Mint' : 'Moderate Play',
     Language: card['Idioma (BR EN DE ES FR IT JP KO RU TW)'] === 'BR' ? 'Portuguese' : 'English',
-    CollectorNumber: card['Card #'] ?? '',
+    CollectorNumber: card['Card #']?.replace(/\s*\(.*?\)\s*/g, '') || '',
     }));
 }
 
