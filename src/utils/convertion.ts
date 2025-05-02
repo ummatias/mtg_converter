@@ -125,7 +125,8 @@ function ligamagicToMoxfield(cards: LigaMagicCard[]): MoxFieldCard[] {
     return cards.map((card) => ({
     Count: card.Quantidade || 1,
     //Needed to remove the text inside the parentheses, normally cards with some kind of variant (ex: Atractions of Unffinity)
-    Name: card['Card (EN)']?.replace(/\s*\(.*?\)\s*/g, '') || '',
+    // IF _ repeat more than 5 times, trim to 5 times
+    Name: (card['Card (EN)']?.replace(/\s*\(.*?\)\s*/g, '') || '').replace(/_{6,}/g, '_____'),
     Edition: card['Edicao (Sigla)'] || '',
     Condition: card['Qualidade (M NM SP MP HP D)'] === 'NM' ? 'Near Mint' : 'Moderate Play',
     Language: card['Idioma (BR EN DE ES FR IT JP KO RU TW)'] === 'BR' ? 'Portuguese' : 'English',
@@ -160,3 +161,10 @@ export {
     type ManaBoxCard,
     type LigaMagicCard,
 };
+
+
+// ________-o-saurus
+// _____-o-saurus
+// Wolf in _____ Clothing
+//________ Bird Gets the Worm"
+// _____-o-saurus
